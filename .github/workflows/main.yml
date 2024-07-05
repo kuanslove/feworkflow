@@ -34,7 +34,7 @@ jobs:
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
 
       - name: Create Docker image
-        run: docker tag my-react-app:latest yourusername/my-react-app:latest
+        run: docker tag my-react-app:latest  ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
       
       - name: Push Docker image to DockerHub 
-        run: docker push yourusername/my-react-app:latest
+        run: docker push  ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
